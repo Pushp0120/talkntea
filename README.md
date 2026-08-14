@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TALK N TEA BILIMORA - Cafe Website
 
-## Getting Started
+A premium cafe website built with Next.js, featuring menu browsing, gallery, reviews, and WhatsApp integration.
 
-First, run the development server:
+## 🚀 Deployment Instructions
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Option 1: Deploy to Vercel (Recommended)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. **Install Vercel CLI**
+   ```bash
+   npm install -g vercel
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. **Login to Vercel**
+   ```bash
+   vercel login
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. **Deploy the project**
+   ```bash
+   cd talk-n-tea-cafe
+   vercel
+   ```
 
-## Learn More
+4. **Set Environment Variables**
+   During deployment, set these environment variables in Vercel:
+   - `DATABASE_URL`: For production, you'll need a cloud database (PostgreSQL recommended)
+   - For now, the app will work without database using static data
 
-To learn more about Next.js, take a look at the following resources:
+5. **Deploy to Production**
+   ```bash
+   vercel --prod
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Option 2: Manual Vercel Deployment via Dashboard
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Push your code to GitHub
+2. Go to [vercel.com](https://vercel.com)
+3. Click "Add New Project"
+4. Import your GitHub repository
+5. Configure environment variables
+6. Click "Deploy"
 
-## Deploy on Vercel
+## 📝 Important Notes for Production
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Database Configuration
+The current setup uses SQLite for local development. For production:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Recommended**: Use a cloud database like:
+   - PostgreSQL (Vercel Postgres, Supabase, Neon)
+   - MySQL (PlanetScale)
+   - MongoDB (MongoDB Atlas)
+
+2. **Update DATABASE_URL** in Vercel environment variables
+
+3. **Run migrations** on your production database
+
+### WhatsApp Integration
+The WhatsApp number is set to: `+91 76002 30188`
+
+## 🛠️ Local Development
+
+1. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+2. **Set up environment**
+   ```bash
+   cp .env.example .env
+   ```
+
+3. **Run database migrations**
+   ```bash
+   npx prisma migrate dev
+   ```
+
+4. **Seed the database**
+   ```bash
+   npm run seed
+   ```
+
+5. **Start development server**
+   ```bash
+   npm run dev
+   ```
+
+## 📱 Features
+
+- ✅ Premium UI with animations
+- ✅ Menu section with categories
+- ✅ Gallery with image display
+- ✅ Review system
+- ✅ Location with Google Maps
+- ✅ WhatsApp integration
+- ✅ Responsive design
+- ✅ SEO optimized
+
+## 🎨 Customization
+
+- Update WhatsApp number in components
+- Replace placeholder images with real cafe photos
+- Modify menu items in database
+- Customize colors in Tailwind classes
+
+## 📞 Contact
+
+- Phone: +91 76002 30188
+- Location: Bilimora, Gujarat, India
