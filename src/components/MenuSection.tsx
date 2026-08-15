@@ -5,8 +5,6 @@ import { Coffee, Cake, Sandwich, Soup, Star } from 'lucide-react'
 import { useState } from 'react'
 
 const menuCategories = [
-
-const menuCategories = [
   { id: 'all', name: 'All Items', icon: Coffee },
   { id: 'tea', name: 'Tea', icon: Coffee },
   { id: 'snacks', name: 'Snacks', icon: Sandwich },
