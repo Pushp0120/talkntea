@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Coffee, Menu as MenuIcon, X, MapPin, Star, Send, Clock, Phone } from 'lucide-react'
+import { Menu as MenuIcon, X, MapPin, Star, Send, Clock, Phone } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import MenuSection from '@/components/MenuSection'
 import GallerySection from '@/components/GallerySection'
@@ -37,7 +37,11 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               className="flex items-center gap-2"
             >
-              <Coffee className="h-8 w-8 text-amber-600" />
+              <img
+                src="/logo.jpg"
+                alt="Talk N Tea Logo"
+                className="h-8 w-8 rounded-full object-cover"
+              />
               <span className="text-xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
                 TALK N TEA
               </span>
@@ -139,7 +143,7 @@ export default function Home() {
               className="mb-8"
             >
               <img
-                src="/gallery/cafe-ambiance-1.png"
+                src="/logo.jpg"
                 alt="Talk N Tea Cafe"
                 className="h-32 w-32 rounded-full object-cover mx-auto shadow-xl"
               />
@@ -153,9 +157,14 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="text-xl md:text-2xl text-gray-700 mb-8 max-w-2xl mx-auto"
+              className="text-xl md:text-2xl text-gray-700 mb-8 max-w-2xl mx-auto flex items-center justify-center gap-2"
             >
-              Where Every Cup Tells a Story ☕
+              Where Every Cup Tells a Story
+              <img
+                src="/logo.jpg"
+                alt="Logo"
+                className="h-6 w-6 rounded-full object-cover"
+              />
             </motion.p>
             
             <motion.div
@@ -234,7 +243,11 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <Coffee className="h-8 w-8 text-amber-500" />
+                <img
+                  src="/logo.jpg"
+                  alt="Talk N Tea Logo"
+                  className="h-8 w-8 rounded-full object-cover"
+                />
                 <span className="text-xl font-bold">TALK N TEA</span>
               </div>
               <p className="text-gray-400">
