@@ -1,8 +1,16 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Menu as MenuIcon, X, MapPin, Star, Send, Clock, Phone, Instagram } from 'lucide-react'
+import { Menu as MenuIcon, X, MapPin, Star, Send, Clock, Phone } from 'lucide-react'
 import { useState, useEffect } from 'react'
+
+const InstagramIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+  </svg>
+)
 import MenuSection from '@/components/MenuSection'
 import GallerySection from '@/components/GallerySection'
 import ReviewSection from '@/components/ReviewSection'
@@ -78,7 +86,7 @@ export default function Home() {
                 onClick={() => window.open('https://www.instagram.com/talknteaofficial/', '_blank')}
                 className="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full hover:from-purple-600 hover:to-pink-600 transition-colors"
               >
-                <Instagram className="h-4 w-4" />
+                <InstagramIcon />
                 Instagram
               </motion.button>
             </div>
@@ -127,7 +135,7 @@ export default function Home() {
                 onClick={() => window.open('https://www.instagram.com/talknteaofficial/', '_blank')}
                 className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full"
               >
-                <Instagram className="h-4 w-4" />
+                <InstagramIcon />
                 Instagram
               </motion.button>
             </div>
@@ -340,7 +348,7 @@ export default function Home() {
                 onClick={() => window.open('https://www.instagram.com/talknteaofficial/', '_blank')}
                 className="mt-2 flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full hover:from-purple-600 hover:to-pink-600 transition-colors"
               >
-                <Instagram className="h-4 w-4" />
+                <InstagramIcon />
                 Follow on Instagram
               </motion.button>
             </div>
