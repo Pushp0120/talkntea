@@ -146,9 +146,6 @@ export default function Home() {
       {/* Hero Section */}
       <section id="home" className="pt-16 min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
         <div className="absolute inset-0 bg-gradient-to-br from-amber-100/20 via-orange-100/20 to-yellow-100/20" />
-        <div className="absolute top-20 left-10 w-96 h-96 bg-amber-300/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-orange-300/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-yellow-200/10 rounded-full blur-3xl" />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
