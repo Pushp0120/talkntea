@@ -62,7 +62,7 @@ async function main() {
     {
       name: 'Aloo Tikki Burger',
       description: 'Crispy aloo tikki patty in burger bun',
-      price: 55,
+      price: 50,
       category: 'snacks',
       featured: true,
       image: '/menu/aloo-tikki-burger.png',
@@ -78,7 +78,7 @@ async function main() {
     {
       name: 'Salted Fries',
       description: 'Crispy salted potato fries',
-      price: 35,
+      price: 60,
       category: 'snacks',
       featured: false,
       image: '/menu/salted-fries.png',
@@ -86,7 +86,7 @@ async function main() {
     {
       name: 'Veg Cheese Pizza',
       description: 'Vegetable pizza with cheese',
-      price: 120,
+      price: 95,
       category: 'snacks',
       featured: true,
       image: '/menu/veg-cheese-pizza.png',
