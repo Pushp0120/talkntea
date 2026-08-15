@@ -5,6 +5,8 @@ import { Coffee, Cake, Sandwich, Soup, Star } from 'lucide-react'
 import { useState } from 'react'
 
 const menuCategories = [
+
+const menuCategories = [
   { id: 'all', name: 'All Items', icon: Coffee },
   { id: 'tea', name: 'Tea', icon: Coffee },
   { id: 'snacks', name: 'Snacks', icon: Sandwich },
@@ -116,12 +118,6 @@ export default function MenuSection() {
     return matchesCategory && matchesSearch
   })
 
-  const handleWhatsAppOrder = (itemName: string) => {
-    const phoneNumber = '918696743047'
-    const message = encodeURIComponent(`Hi! I would like to order ${itemName} from your menu.`)
-    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank')
-  }
-
   return (
     <section id="menu" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -219,15 +215,7 @@ export default function MenuSection() {
                   <h3 className="text-xl font-bold text-gray-800">{item.name}</h3>
                   <span className="text-2xl font-bold text-amber-600">₹{item.price}</span>
                 </div>
-                <p className="text-gray-600 mb-4">{item.description}</p>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => handleWhatsAppOrder(item.name)}
-                  className="w-full bg-green-500 text-white py-2 rounded-full hover:bg-green-600 transition-colors flex items-center justify-center gap-2"
-                >
-                  Order on WhatsApp
-                </motion.button>
+                <p className="text-gray-600">{item.description}</p>
               </div>
             </motion.div>
           ))}

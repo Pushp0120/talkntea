@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Menu as MenuIcon, X, MapPin, Star, Send, Clock, Phone } from 'lucide-react'
+import { Menu as MenuIcon, X, MapPin, Star, Send, Clock, Phone, Instagram } from 'lucide-react'
 import { useState, useEffect } from 'react'
 import MenuSection from '@/components/MenuSection'
 import GallerySection from '@/components/GallerySection'
@@ -72,6 +72,15 @@ export default function Home() {
                 <Send className="h-4 w-4" />
                 WhatsApp
               </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => window.open('https://www.instagram.com/talknteaofficial/', '_blank')}
+                className="flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full hover:from-purple-600 hover:to-pink-600 transition-colors"
+              >
+                <Instagram className="h-4 w-4" />
+                Instagram
+              </motion.button>
             </div>
 
             {/* Mobile menu button */}
@@ -112,6 +121,14 @@ export default function Home() {
               >
                 <Send className="h-4 w-4" />
                 WhatsApp
+              </motion.button>
+              <motion.button
+                whileTap={{ scale: 0.95 }}
+                onClick={() => window.open('https://www.instagram.com/talknteaofficial/', '_blank')}
+                className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full"
+              >
+                <Instagram className="h-4 w-4" />
+                Instagram
               </motion.button>
             </div>
           </motion.div>
@@ -220,6 +237,44 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* Video Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
+              Experience Talk N Tea
+            </h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Take a virtual tour of our cafe
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="relative rounded-2xl overflow-hidden shadow-2xl"
+          >
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-auto"
+            >
+              <source src="/cafe-video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Menu Section */}
       <MenuSection />
 
@@ -278,6 +333,15 @@ export default function Home() {
               >
                 <Send className="h-4 w-4" />
                 WhatsApp Us
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => window.open('https://www.instagram.com/talknteaofficial/', '_blank')}
+                className="mt-2 flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-2 rounded-full hover:from-purple-600 hover:to-pink-600 transition-colors"
+              >
+                <Instagram className="h-4 w-4" />
+                Follow on Instagram
               </motion.button>
             </div>
           </div>
