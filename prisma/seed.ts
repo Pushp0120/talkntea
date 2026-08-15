@@ -17,6 +17,7 @@ async function main() {
       price: 30,
       category: 'tea',
       featured: true,
+      image: '/menu/masala-chai.png',
     },
     {
       name: 'Ginger Tea',
@@ -24,6 +25,7 @@ async function main() {
       price: 35,
       category: 'tea',
       featured: true,
+      image: '/menu/masala-chai.png',
     },
     {
       name: 'Green Tea',
@@ -31,6 +33,7 @@ async function main() {
       price: 40,
       category: 'tea',
       featured: false,
+      image: '/menu/masala-chai.png',
     },
     {
       name: 'Samosa',
@@ -38,6 +41,7 @@ async function main() {
       price: 25,
       category: 'snacks',
       featured: true,
+      image: '/menu/samosa.png',
     },
     {
       name: 'Vada Pav',
@@ -45,6 +49,7 @@ async function main() {
       price: 30,
       category: 'snacks',
       featured: true,
+      image: '/menu/samosa.png',
     },
     {
       name: 'Sandwich',
@@ -52,6 +57,7 @@ async function main() {
       price: 45,
       category: 'snacks',
       featured: false,
+      image: '/menu/samosa.png',
     },
     {
       name: 'Chocolate Cake',
@@ -59,6 +65,7 @@ async function main() {
       price: 80,
       category: 'desserts',
       featured: true,
+      image: '/gallery/special-events.png',
     },
     {
       name: 'Pastry',
@@ -66,6 +73,7 @@ async function main() {
       price: 60,
       category: 'desserts',
       featured: false,
+      image: '/gallery/special-events.png',
     },
     {
       name: 'Cold Coffee',
@@ -73,6 +81,7 @@ async function main() {
       price: 70,
       category: 'beverages',
       featured: true,
+      image: '/menu/cold-coffee.png',
     },
     {
       name: 'Milkshake',
@@ -80,6 +89,7 @@ async function main() {
       price: 80,
       category: 'beverages',
       featured: false,
+      image: '/menu/cold-coffee.png',
     },
   ]
 
@@ -119,14 +129,16 @@ async function main() {
 
   // Gallery Images
   const galleryImages = [
-    { url: '/placeholder-cafe1.jpg', caption: 'Cozy cafe ambiance', order: 0 },
-    { url: '/placeholder-cafe2.jpg', caption: 'Fresh brewing tea', order: 1 },
-    { url: '/placeholder-cafe3.jpg', caption: 'Delicious snacks', order: 2 },
-    { url: '/placeholder-cafe4.jpg', caption: 'Happy customers', order: 3 },
-    { url: '/placeholder-cafe5.jpg', caption: 'Artistic latte art', order: 4 },
-    { url: '/placeholder-cafe6.jpg', caption: 'Evening vibes', order: 5 },
-    { url: '/placeholder-cafe7.jpg', caption: 'Special events', order: 6 },
-    { url: '/placeholder-cafe8.jpg', caption: 'Team preparing orders', order: 7 },
+    { url: '/gallery/cafe-ambiance-1.png', caption: 'Cozy cafe ambiance', order: 0 },
+    { url: '/gallery/cafe-ambiance-2.png', caption: 'Beautiful cafe interior', order: 1 },
+    { url: '/gallery/chai-brewing.png', caption: 'Fresh brewing tea', order: 2 },
+    { url: '/gallery/delicious-snacks.png', caption: 'Delicious snacks', order: 3 },
+    { url: '/gallery/happy-customers.png', caption: 'Happy customers', order: 4 },
+    { url: '/gallery/latte-art.png', caption: 'Artistic latte art', order: 5 },
+    { url: '/gallery/evening-vibes.png', caption: 'Evening vibes', order: 6 },
+    { url: '/gallery/special-events.png', caption: 'Special events', order: 7 },
+    { url: '/gallery/team-preparing.png', caption: 'Team preparing orders', order: 8 },
+    { url: '/gallery/cafe-interior.png', caption: 'Cafe interior', order: 9 },
   ]
 
   for (const image of galleryImages) {

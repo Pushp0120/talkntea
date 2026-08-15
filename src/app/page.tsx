@@ -138,7 +138,11 @@ export default function Home() {
               }}
               className="mb-8"
             >
-              <Coffee className="h-24 w-24 text-amber-600 mx-auto" />
+              <img
+                src="/gallery/cafe-ambiance-1.png"
+                alt="Talk N Tea Cafe"
+                className="h-32 w-32 rounded-full object-cover mx-auto shadow-xl"
+              />
             </motion.div>
             
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-600 via-orange-600 to-yellow-600 bg-clip-text text-transparent">

@@ -19,7 +19,7 @@ const menuItems = [
     description: 'Traditional Indian spiced tea with aromatic herbs',
     price: 30,
     category: 'tea',
-    image: '/placeholder-tea.jpg',
+    image: '/menu/masala-chai.png',
     featured: true,
   },
   {
@@ -28,7 +28,7 @@ const menuItems = [
     description: 'Fresh ginger infused tea with honey',
     price: 35,
     category: 'tea',
-    image: '/placeholder-tea.jpg',
+    image: '/menu/masala-chai.png',
     featured: true,
   },
   {
@@ -37,7 +37,7 @@ const menuItems = [
     description: 'Premium green tea leaves',
     price: 40,
     category: 'tea',
-    image: '/placeholder-tea.jpg',
+    image: '/menu/masala-chai.png',
     featured: false,
   },
   {
@@ -46,7 +46,7 @@ const menuItems = [
     description: 'Crispy pastry filled with spiced potatoes',
     price: 25,
     category: 'snacks',
-    image: '/placeholder-samosa.jpg',
+    image: '/menu/samosa.png',
     featured: true,
   },
   {
@@ -55,7 +55,7 @@ const menuItems = [
     description: 'Mumbai style potato vada in pav',
     price: 30,
     category: 'snacks',
-    image: '/placeholder-vada.jpg',
+    image: '/menu/samosa.png',
     featured: true,
   },
   {
@@ -64,7 +64,7 @@ const menuItems = [
     description: 'Grilled vegetable sandwich with cheese',
     price: 45,
     category: 'snacks',
-    image: '/placeholder-sandwich.jpg',
+    image: '/menu/samosa.png',
     featured: false,
   },
   {
@@ -73,7 +73,7 @@ const menuItems = [
     description: 'Rich chocolate sponge cake',
     price: 80,
     category: 'desserts',
-    image: '/placeholder-cake.jpg',
+    image: '/gallery/special-events.png',
     featured: true,
   },
   {
@@ -82,7 +82,7 @@ const menuItems = [
     description: 'Fresh cream pastry',
     price: 60,
     category: 'desserts',
-    image: '/placeholder-pastry.jpg',
+    image: '/gallery/special-events.png',
     featured: false,
   },
   {
@@ -91,7 +91,7 @@ const menuItems = [
     description: 'Chilled coffee with ice cream',
     price: 70,
     category: 'beverages',
-    image: '/placeholder-coffee.jpg',
+    image: '/menu/cold-coffee.png',
     featured: true,
   },
   {
@@ -100,7 +100,7 @@ const menuItems = [
     description: 'Thick milkshake in various flavors',
     price: 80,
     category: 'beverages',
-    image: '/placeholder-shake.jpg',
+    image: '/menu/cold-coffee.png',
     featured: false,
   },
 ]
@@ -201,14 +201,18 @@ export default function MenuSection() {
               whileHover={{ y: -5 }}
               className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
             >
-              <div className="relative h-48 bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center">
+              <div className="relative h-48 bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center overflow-hidden">
                 {item.featured && (
-                  <div className="absolute top-4 right-4 bg-amber-500 text-white px-3 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
+                  <div className="absolute top-4 right-4 bg-amber-500 text-white px-3 py-1 rounded-full text-sm font-semibold flex items-center gap-1 z-10">
                     <Star className="h-3 w-3 fill-current" />
                     Popular
                   </div>
                 )}
-                <Coffee className="h-16 w-16 text-amber-300" />
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-full h-full object-cover transition-transform group-hover:scale-110"
+                />
               </div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-2">
