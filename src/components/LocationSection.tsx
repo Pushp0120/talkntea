@@ -19,7 +19,7 @@ export default function LocationSection() {
   }
 
   const handleGoogleMaps = () => {
-    window.open('https://maps.google.com/?q=20.7665386,72.9817413', '_blank')
+    window.open('https://maps.app.goo.gl/69vE498QVeXo5q5b6', '_blank')
   }
 
   const handleCall = () => {

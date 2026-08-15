@@ -5,16 +5,9 @@ import { Heart } from 'lucide-react'
 import { useState } from 'react'
 
 const galleryImages = [
-  { id: 1, url: '/gallery/cafe-ambiance-1.png', caption: 'Cozy cafe ambiance' },
-  { id: 2, url: '/gallery/cafe-ambiance-2.png', caption: 'Beautiful cafe interior' },
-  { id: 3, url: '/gallery/chai-brewing.png', caption: 'Fresh brewing tea' },
-  { id: 4, url: '/gallery/delicious-snacks.png', caption: 'Delicious snacks' },
-  { id: 5, url: '/gallery/happy-customers.png', caption: 'Happy customers' },
-  { id: 6, url: '/gallery/latte-art.png', caption: 'Artistic latte art' },
-  { id: 7, url: '/gallery/evening-vibes.png', caption: 'Evening vibes' },
-  { id: 8, url: '/gallery/special-events.png', caption: 'Special events' },
-  { id: 9, url: '/gallery/team-preparing.png', caption: 'Team preparing orders' },
-  { id: 10, url: '/gallery/cafe-interior.png', caption: 'Cafe interior' },
+  { id: 1, url: '/gallery/cafe-image-1.png', caption: 'Talk N Tea Cafe' },
+  { id: 2, url: '/gallery/cafe-image-2.png', caption: 'Our Special Menu' },
+  { id: 3, url: '/gallery/cafe-image-3.png', caption: 'Cafe Ambiance' },
 ]
 
 export default function GallerySection() {
@@ -42,7 +35,7 @@ export default function GallerySection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="grid grid-cols-2 md:grid-cols-5 gap-4"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
         >
           {galleryImages.map((image, index) => (
             <motion.div

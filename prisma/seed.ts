@@ -153,16 +153,9 @@ async function main() {
 
   // Gallery Images
   const galleryImages = [
-    { url: '/gallery/cafe-ambiance-1.png', caption: 'Cozy cafe ambiance', order: 0 },
-    { url: '/gallery/cafe-ambiance-2.png', caption: 'Beautiful cafe interior', order: 1 },
-    { url: '/gallery/chai-brewing.png', caption: 'Fresh brewing tea', order: 2 },
-    { url: '/gallery/delicious-snacks.png', caption: 'Delicious snacks', order: 3 },
-    { url: '/gallery/happy-customers.png', caption: 'Happy customers', order: 4 },
-    { url: '/gallery/latte-art.png', caption: 'Artistic latte art', order: 5 },
-    { url: '/gallery/evening-vibes.png', caption: 'Evening vibes', order: 6 },
-    { url: '/gallery/special-events.png', caption: 'Special events', order: 7 },
-    { url: '/gallery/team-preparing.png', caption: 'Team preparing orders', order: 8 },
-    { url: '/gallery/cafe-interior.png', caption: 'Cafe interior', order: 9 },
+    { url: '/gallery/cafe-image-1.png', caption: 'Talk N Tea Cafe', order: 0 },
+    { url: '/gallery/cafe-image-2.png', caption: 'Our Special Menu', order: 1 },
+    { url: '/gallery/cafe-image-3.png', caption: 'Cafe Ambiance', order: 2 },
   ]
 
   for (const image of galleryImages) {
