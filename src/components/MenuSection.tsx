@@ -117,7 +117,7 @@ export default function MenuSection() {
   })
 
   const handleWhatsAppOrder = (itemName: string) => {
-    const phoneNumber = '917600230188'
+    const phoneNumber = '918696743047'
     const message = encodeURIComponent(`Hi! I would like to order ${itemName} from your menu.`)
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank')
   }

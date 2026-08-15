@@ -21,7 +21,7 @@ export default function Home() {
   ]
 
   const handleWhatsAppClick = () => {
-    const phoneNumber = '917600230188'
+    const phoneNumber = '918696743047'
     const message = encodeURIComponent('Hi! I would like to know more about your cafe and menu.')
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank')
   }
@@ -203,7 +203,7 @@ export default function Home() {
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="h-5 w-5 text-amber-600" />
-                <span>+91 76002 30188</span>
+                <span>+91 86967 43047</span>
               </div>
             </motion.div>
           </motion.div>
@@ -267,7 +267,7 @@ export default function Home() {
                 </li>
                 <li className="flex items-center gap-2">
                   <Phone className="h-4 w-4" />
-                  +91 76002 30188
+                  +91 86967 43047
                 </li>
               </ul>
               <motion.button

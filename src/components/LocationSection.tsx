@@ -8,12 +8,12 @@ export default function LocationSection() {
     name: 'TALK N TEA BILIMORA',
     address: 'Bilimora, Gujarat, India',
     coordinates: '20.7665386,72.9817413',
-    phone: '+91 76002 30188',
+    phone: '+91 86967 43047',
     hours: '9:00 AM - 10:00 PM',
   }
 
   const handleWhatsAppNavigation = () => {
-    const phoneNumber = '917600230188'
+    const phoneNumber = '918696743047'
     const message = encodeURIComponent('Hi! I am on my way to your cafe. Could you help me with directions?')
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank')
   }
@@ -23,7 +23,7 @@ export default function LocationSection() {
   }
 
   const handleCall = () => {
-    window.open(`tel:+917600230188`, '_self')
+    window.open(`tel:+918696743047`, '_self')
   }
 
   return (
