@@ -56,7 +56,7 @@ export default function LocationSection() {
           >
             <div className="relative h-[400px] md:h-[500px] bg-gradient-to-br from-amber-100 to-orange-100">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3742.123456789!2d72.9817413!3d20.7665386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjDCsDQ1JzU5LjUiTiA3MsKwNTgnNTAuMiJF!5e0!3m2!1sen!2sin!4v1234567890"
+                src="https://www.google.com/maps?q=20.7665386,72.9817413&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -65,13 +65,6 @@ export default function LocationSection() {
                 referrerPolicy="no-referrer-when-downgrade"
                 className="absolute inset-0"
               />
-              <div className="absolute inset-0 flex items-center justify-center bg-amber-50/80">
-                <div className="text-center">
-                  <MapPin className="h-16 w-16 text-amber-600 mx-auto mb-4" />
-                  <p className="text-gray-600">Interactive Map</p>
-                  <p className="text-sm text-gray-500">Loading Google Maps...</p>
-                </div>
-              </div>
             </div>
           </motion.div>
 
