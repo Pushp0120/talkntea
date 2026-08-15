@@ -43,21 +43,21 @@ export default function GallerySection() {
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ scale: 1.05 }}
+              transition={{ delay: index * 0.15 }}
+              whileHover={{ scale: 1.05, y: -8 }}
               onClick={() => setSelectedImage(image)}
-              className="relative aspect-square rounded-2xl overflow-hidden cursor-pointer shadow-lg group"
+              className="relative aspect-square rounded-3xl overflow-hidden cursor-pointer shadow-2xl group border-4 border-white"
             >
               <img
                 src={image.url}
                 alt={image.caption}
-                className="w-full h-full object-cover transition-transform group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <Heart className="h-8 w-8 text-white" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <Heart className="h-12 w-12 text-white" />
               </div>
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 translate-y-full group-hover:translate-y-0 transition-transform">
-                <p className="text-white text-sm font-medium">{image.caption}</p>
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <p className="text-white text-lg font-semibold">{image.caption}</p>
               </div>
             </motion.div>
           ))}

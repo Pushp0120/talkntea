@@ -149,12 +149,12 @@ export default function MenuSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-amber-600 via-orange-600 to-yellow-600 bg-clip-text text-transparent">
             Our Menu
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto font-medium">
             Discover our carefully crafted selection of premium teas and delicious snacks
           </p>
         </motion.div>
@@ -209,7 +209,7 @@ export default function MenuSection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {filteredItems.map((item, index) => (
             <motion.div
@@ -218,28 +218,31 @@ export default function MenuSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
-              className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+              whileHover={{ y: -8, scale: 1.02 }}
+              className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100"
             >
-              <div className="relative h-48 bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center overflow-hidden">
+              <div className="relative h-56 bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center overflow-hidden">
                 {item.featured && (
-                  <div className="absolute top-4 right-4 bg-amber-500 text-white px-3 py-1 rounded-full text-sm font-semibold flex items-center gap-1 z-10">
-                    <Star className="h-3 w-3 fill-current" />
+                  <div className="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-1 z-10 shadow-lg">
+                    <Star className="h-4 w-4 fill-current" />
                     Popular
                   </div>
                 )}
                 <img
                   src={item.image}
                   alt={item.name}
-                  className="w-full h-full object-cover transition-transform group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
               </div>
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-2">
+              <div className="p-6 bg-white">
+                <div className="flex justify-between items-start mb-3">
                   <h3 className="text-xl font-bold text-gray-800">{item.name}</h3>
-                  <span className="text-2xl font-bold text-amber-600">₹{item.price}</span>
+                  <div className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full font-bold shadow-md">
+                    ₹{item.price}
+                  </div>
                 </div>
-                <p className="text-gray-600">{item.description}</p>
+                <p className="text-gray-600 text-sm leading-relaxed">{item.description}</p>
               </div>
             </motion.div>
           ))}
