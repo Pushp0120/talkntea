@@ -267,14 +267,15 @@ export default function Home() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="relative rounded-2xl overflow-hidden shadow-2xl"
+            className="relative rounded-2xl overflow-hidden shadow-2xl max-w-md mx-auto"
+            style={{ aspectRatio: '9/16' }}
           >
             <video
               autoPlay
               loop
               muted
               playsInline
-              className="w-full h-auto"
+              className="w-full h-full object-cover"
             >
               <source src="/cafe-video.mp4" type="video/mp4" />
               Your browser does not support the video tag.
