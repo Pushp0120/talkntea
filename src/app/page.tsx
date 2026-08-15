@@ -157,14 +157,9 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="text-xl md:text-2xl text-gray-700 mb-8 max-w-2xl mx-auto flex items-center justify-center gap-2"
+              className="text-xl md:text-2xl text-gray-700 mb-8 max-w-2xl mx-auto"
             >
               Where Every Cup Tells a Story
-              <img
-                src="/logo.jpg"
-                alt="Logo"
-                className="h-6 w-6 rounded-full object-cover"
-              />
             </motion.p>
             
             <motion.div
