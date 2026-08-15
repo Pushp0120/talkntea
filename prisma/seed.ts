@@ -25,7 +25,7 @@ async function main() {
       price: 35,
       category: 'tea',
       featured: true,
-      image: '/menu/masala-chai.png',
+      image: '/menu/ginger-tea.png',
     },
     {
       name: 'Green Tea',
@@ -33,7 +33,7 @@ async function main() {
       price: 40,
       category: 'tea',
       featured: false,
-      image: '/menu/masala-chai.png',
+      image: '/menu/green-tea.png',
     },
     {
       name: 'Samosa',
@@ -49,7 +49,7 @@ async function main() {
       price: 30,
       category: 'snacks',
       featured: true,
-      image: '/menu/samosa.png',
+      image: '/menu/vada-pav.png',
     },
     {
       name: 'Sandwich',
@@ -57,7 +57,7 @@ async function main() {
       price: 45,
       category: 'snacks',
       featured: false,
-      image: '/menu/samosa.png',
+      image: '/menu/sandwich.png',
     },
     {
       name: 'Chocolate Cake',
@@ -65,7 +65,7 @@ async function main() {
       price: 80,
       category: 'desserts',
       featured: true,
-      image: '/gallery/special-events.png',
+      image: '/menu/chocolate-cake.png',
     },
     {
       name: 'Pastry',
@@ -73,7 +73,7 @@ async function main() {
       price: 60,
       category: 'desserts',
       featured: false,
-      image: '/gallery/special-events.png',
+      image: '/menu/pastry.png',
     },
     {
       name: 'Cold Coffee',
@@ -89,7 +89,7 @@ async function main() {
       price: 80,
       category: 'beverages',
       featured: false,
-      image: '/menu/cold-coffee.png',
+      image: '/menu/milkshake.png',
     },
   ]
 

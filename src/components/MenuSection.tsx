@@ -28,7 +28,7 @@ const menuItems = [
     description: 'Fresh ginger infused tea with honey',
     price: 35,
     category: 'tea',
-    image: '/menu/masala-chai.png',
+    image: '/menu/ginger-tea.png',
     featured: true,
   },
   {
@@ -37,7 +37,7 @@ const menuItems = [
     description: 'Premium green tea leaves',
     price: 40,
     category: 'tea',
-    image: '/menu/masala-chai.png',
+    image: '/menu/green-tea.png',
     featured: false,
   },
   {
@@ -55,7 +55,7 @@ const menuItems = [
     description: 'Mumbai style potato vada in pav',
     price: 30,
     category: 'snacks',
-    image: '/menu/samosa.png',
+    image: '/menu/vada-pav.png',
     featured: true,
   },
   {
@@ -64,7 +64,7 @@ const menuItems = [
     description: 'Grilled vegetable sandwich with cheese',
     price: 45,
     category: 'snacks',
-    image: '/menu/samosa.png',
+    image: '/menu/sandwich.png',
     featured: false,
   },
   {
@@ -73,7 +73,7 @@ const menuItems = [
     description: 'Rich chocolate sponge cake',
     price: 80,
     category: 'desserts',
-    image: '/gallery/special-events.png',
+    image: '/menu/chocolate-cake.png',
     featured: true,
   },
   {
@@ -82,7 +82,7 @@ const menuItems = [
     description: 'Fresh cream pastry',
     price: 60,
     category: 'desserts',
-    image: '/gallery/special-events.png',
+    image: '/menu/pastry.png',
     featured: false,
   },
   {
@@ -100,7 +100,7 @@ const menuItems = [
     description: 'Thick milkshake in various flavors',
     price: 80,
     category: 'beverages',
-    image: '/menu/cold-coffee.png',
+    image: '/menu/milkshake.png',
     featured: false,
   },
 ]
