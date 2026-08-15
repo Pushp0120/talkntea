@@ -77,11 +77,11 @@ const menuItems = [
   },
   {
     id: 8,
-    name: 'Maggie',
+    name: 'Maggi',
     description: 'Spicy vegetable noodles',
     price: 40,
     category: 'snacks',
-    image: '/menu/maggie.png',
+    image: '/menu/maggi.png',
     featured: true,
   },
   {

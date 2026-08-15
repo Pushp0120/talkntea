@@ -68,12 +68,12 @@ async function main() {
       image: '/menu/aloo-tikki-burger.png',
     },
     {
-      name: 'Maggie',
+      name: 'Maggi',
       description: 'Spicy vegetable noodles',
       price: 40,
       category: 'snacks',
       featured: true,
-      image: '/menu/maggie.png',
+      image: '/menu/maggi.png',
     },
     {
       name: 'Salted Fries',
