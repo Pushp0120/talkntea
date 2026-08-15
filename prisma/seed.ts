@@ -153,9 +153,9 @@ async function main() {
 
   // Gallery Images
   const galleryImages = [
-    { url: '/gallery/cafe-image-1.png', caption: 'Talk N Tea Cafe', order: 0 },
-    { url: '/gallery/cafe-image-2.png', caption: 'Our Special Menu', order: 1 },
-    { url: '/gallery/cafe-image-3.png', caption: 'Cafe Ambiance', order: 2 },
+    { url: '/gallery/gallery-1.png', caption: 'Talk N Tea Cafe', order: 0 },
+    { url: '/gallery/gallery-2.png', caption: 'Our Special Menu', order: 1 },
+    { url: '/gallery/gallery-3.png', caption: 'Cafe Ambiance', order: 2 },
   ]
 
   for (const image of galleryImages) {

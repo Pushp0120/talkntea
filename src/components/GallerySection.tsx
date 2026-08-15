@@ -5,9 +5,9 @@ import { Heart } from 'lucide-react'
 import { useState } from 'react'
 
 const galleryImages = [
-  { id: 1, url: '/gallery/cafe-image-1.png', caption: 'Talk N Tea Cafe' },
-  { id: 2, url: '/gallery/cafe-image-2.png', caption: 'Our Special Menu' },
-  { id: 3, url: '/gallery/cafe-image-3.png', caption: 'Cafe Ambiance' },
+  { id: 1, url: '/gallery/gallery-1.png', caption: 'Talk N Tea Cafe' },
+  { id: 2, url: '/gallery/gallery-2.png', caption: 'Our Special Menu' },
+  { id: 3, url: '/gallery/gallery-3.png', caption: 'Cafe Ambiance' },
 ]
 
 export default function GallerySection() {
