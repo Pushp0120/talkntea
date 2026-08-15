@@ -153,13 +153,25 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="mb-8 relative">
+            <motion.div
+              animate={{ 
+                rotate: [0, 5, -5, 0],
+                scale: [1, 1.05, 1]
+              }}
+              transition={{ 
+                duration: 4,
+                repeat: Infinity,
+                repeatDelay: 2
+              }}
+              className="mb-8 relative"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full blur-xl opacity-50" />
               <img
                 src="/logo.jpg"
                 alt="Talk N Tea Cafe"
-                className="h-40 w-40 rounded-full object-cover mx-auto shadow-2xl border-4 border-white"
+                className="h-40 w-40 rounded-full object-cover mx-auto shadow-2xl relative border-4 border-white"
               />
-            </div>
+            </motion.div>
             
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -233,15 +245,11 @@ export default function Home() {
           </motion.div>
         </div>
 
-        <motion.div
-          animate={{ y: [0, 20, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        >
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
           <div className="w-8 h-12 border-3 border-amber-600 rounded-full flex justify-center shadow-lg">
-            <div className="w-2 h-4 bg-amber-600 rounded-full mt-2 animate-bounce" />
+            <div className="w-2 h-4 bg-amber-600 rounded-full mt-2" />
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Video Section */}
