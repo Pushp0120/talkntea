@@ -245,11 +245,7 @@ export default function Home() {
           </motion.div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-          <div className="w-8 h-12 border-3 border-amber-600 rounded-full flex justify-center shadow-lg">
-            <div className="w-2 h-4 bg-amber-600 rounded-full mt-2" />
-          </div>
-        </div>
+
       </section>
 
       {/* Video Section */}
