@@ -1,14 +1,13 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Coffee, Cake, Sandwich, Soup, Star } from 'lucide-react'
+import { Coffee, Sandwich, Soup, Star } from 'lucide-react'
 import { useState } from 'react'
 
 const menuCategories = [
   { id: 'all', name: 'All Items', icon: Coffee },
   { id: 'tea', name: 'Tea', icon: Coffee },
   { id: 'snacks', name: 'Snacks', icon: Sandwich },
-  { id: 'desserts', name: 'Desserts', icon: Cake },
   { id: 'beverages', name: 'Beverages', icon: Soup },
 ]
 
@@ -69,24 +68,51 @@ const menuItems = [
   },
   {
     id: 7,
-    name: 'Chocolate Cake',
-    description: 'Rich chocolate sponge cake',
-    price: 80,
-    category: 'desserts',
-    image: '/menu/chocolate-cake.png',
+    name: 'Aloo Tikki Burger',
+    description: 'Crispy aloo tikki patty in burger bun',
+    price: 55,
+    category: 'snacks',
+    image: '/menu/aloo-tikki-burger.png',
     featured: true,
   },
   {
     id: 8,
-    name: 'Pastry',
-    description: 'Fresh cream pastry',
-    price: 60,
-    category: 'desserts',
-    image: '/menu/pastry.png',
-    featured: false,
+    name: 'Maggie',
+    description: 'Spicy vegetable noodles',
+    price: 40,
+    category: 'snacks',
+    image: '/menu/maggie.png',
+    featured: true,
   },
   {
     id: 9,
+    name: 'Salted Fries',
+    description: 'Crispy salted potato fries',
+    price: 35,
+    category: 'snacks',
+    image: '/menu/salted-fries.png',
+    featured: false,
+  },
+  {
+    id: 10,
+    name: 'Veg Cheese Pizza',
+    description: 'Vegetable pizza with cheese',
+    price: 120,
+    category: 'snacks',
+    image: '/menu/veg-cheese-pizza.png',
+    featured: true,
+  },
+  {
+    id: 11,
+    name: 'Veg Puff',
+    description: 'Flaky pastry with vegetable filling',
+    price: 25,
+    category: 'snacks',
+    image: '/menu/veg-puff.png',
+    featured: false,
+  },
+  {
+    id: 12,
     name: 'Cold Coffee',
     description: 'Chilled coffee with ice cream',
     price: 70,
@@ -95,7 +121,7 @@ const menuItems = [
     featured: true,
   },
   {
-    id: 10,
+    id: 13,
     name: 'Milkshake',
     description: 'Thick milkshake in various flavors',
     price: 80,

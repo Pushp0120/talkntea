@@ -220,7 +220,7 @@ export default function Home() {
             >
               <div className="flex items-center gap-2">
                 <Clock className="h-5 w-5 text-amber-600" />
-                <span>Open 9 AM - 10 PM</span>
+                <span>Open 8:30 AM - 11 PM</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="h-5 w-5 text-amber-600" />

@@ -9,7 +9,7 @@ export default function LocationSection() {
     address: 'Bilimora, Gujarat, India',
     coordinates: '20.7665386,72.9817413',
     phone: '+91 86967 43047',
-    hours: '9:00 AM - 10:00 PM',
+    hours: '8:30 AM - 11:00 PM',
   }
 
   const handleWhatsAppNavigation = () => {
