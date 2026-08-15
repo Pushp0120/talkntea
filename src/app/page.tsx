@@ -153,25 +153,13 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <motion.div
-              animate={{ 
-                rotate: [0, 5, -5, 0],
-                scale: [1, 1.05, 1]
-              }}
-              transition={{ 
-                duration: 4,
-                repeat: Infinity,
-                repeatDelay: 2
-              }}
-              className="mb-8 relative"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full blur-xl opacity-50" />
+            <div className="mb-8 relative">
               <img
                 src="/logo.jpg"
                 alt="Talk N Tea Cafe"
-                className="h-40 w-40 rounded-full object-cover mx-auto shadow-2xl relative border-4 border-white"
+                className="h-40 w-40 rounded-full object-cover mx-auto shadow-2xl border-4 border-white"
               />
-            </motion.div>
+            </div>
             
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
