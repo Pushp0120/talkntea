@@ -120,17 +120,14 @@ export default function GalleryManagement() {
             key={image.id}
             className="relative group rounded-xl overflow-hidden border border-gray-200"
           >
-            {image.url.startsWith('data:') ? (
-              <img
-                src={image.url}
-                alt={image.caption || 'Gallery image'}
-                className="w-full h-48 object-cover"
-              />
-            ) : (
-              <div className="w-full h-48 flex items-center justify-center bg-gray-200">
-                <p className="text-gray-500 text-sm">File path: {image.url}</p>
-              </div>
-            )}
+            <img
+              src={image.url}
+              alt={image.caption || 'Gallery image'}
+              className="w-full h-48 object-cover"
+              onError={(e) => {
+                e.currentTarget.src = '/placeholder.png'
+              }}
+            />
             <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all">
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                 <button
