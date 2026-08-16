@@ -3,6 +3,5 @@
   "devCommand": "next dev",
   "installCommand": "npm install",
   "framework": "nextjs",
-  "regions": ["hkg1"],
-  "postinstallCommand": "npx prisma generate"
+  "regions": ["hkg1"]
 }
