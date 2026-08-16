@@ -163,11 +163,22 @@ export default function MenuManagement() {
           >
             <div className="flex items-center gap-4">
               {item.image && (
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-16 h-16 object-cover rounded-lg"
-                />
+                item.image.startsWith('data:') ? (
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-16 h-16 object-cover rounded-lg"
+                  />
+                ) : (
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-16 h-16 object-cover rounded-lg"
+                    onError={(e) => {
+                      e.currentTarget.src = '/placeholder.png'
+                    }}
+                  />
+                )
               )}
               <div>
                 <h3 className="font-semibold text-gray-800">{item.name}</h3>

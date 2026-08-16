@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
+import { writeFile, mkdir } from 'fs/promises'
+import { join } from 'path'
+import { existsSync } from 'fs'
 
 export async function PUT(
   request: NextRequest,
@@ -19,13 +22,24 @@ export async function PUT(
 
     let imageUrl = null
     if (imageFile && imageFile.size > 0) {
-      // For now, we'll use a placeholder or convert to base64
-      // In production, you'd upload to a cloud storage service
+      // Generate filename from item name
+      const sanitizedName = name.toLowerCase().replace(/[^a-z0-9]/g, '-')
+      const filename = `${sanitizedName}.png`
+      const uploadDir = join(process.cwd(), 'public', 'menu')
+      
+      // Ensure directory exists
+      if (!existsSync(uploadDir)) {
+        await mkdir(uploadDir, { recursive: true })
+      }
+
+      // Save file to public/menu directory
       const bytes = await imageFile.arrayBuffer()
       const buffer = Buffer.from(bytes)
-      const base64 = buffer.toString('base64')
-      const mimeType = imageFile.type
-      imageUrl = `data:${mimeType};base64,${base64}`
+      const filepath = join(uploadDir, filename)
+      await writeFile(filepath, buffer)
+
+      // Create URL path
+      imageUrl = `/menu/${filename}`
     }
 
     const menuItem = await prisma.menuItem.update({

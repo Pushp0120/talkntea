@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
+import { writeFile, mkdir } from 'fs/promises'
+import { join } from 'path'
+import { existsSync } from 'fs'
 
 export async function GET() {
   try {
@@ -25,12 +28,24 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Image is required' }, { status: 400 })
     }
 
-    // Convert image to base64
+    // Generate unique filename
+    const timestamp = Date.now()
+    const filename = `gallery-${timestamp}.png`
+    const uploadDir = join(process.cwd(), 'public', 'gallery')
+    
+    // Ensure directory exists
+    if (!existsSync(uploadDir)) {
+      await mkdir(uploadDir, { recursive: true })
+    }
+
+    // Save file to public/gallery directory
     const bytes = await imageFile.arrayBuffer()
     const buffer = Buffer.from(bytes)
-    const base64 = buffer.toString('base64')
-    const mimeType = imageFile.type
-    const imageUrl = `data:${mimeType};base64,${base64}`
+    const filepath = join(uploadDir, filename)
+    await writeFile(filepath, buffer)
+
+    // Create URL path
+    const imageUrl = `/gallery/${filename}`
 
     // Get the highest order number
     const lastImage = await prisma.galleryImage.findFirst({
