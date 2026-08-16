@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { LayoutDashboard, Menu, Gallery, MessageSquare, MapPin, LogOut, Settings } from 'lucide-react'
+import { LayoutDashboard, Menu, Image, MessageSquare, MapPin, LogOut, Settings } from 'lucide-react'
 import MenuManagement from '@/components/admin/MenuManagement'
 import ReviewManagement from '@/components/admin/ReviewManagement'
 import GalleryManagement from '@/components/admin/GalleryManagement'
@@ -73,7 +73,7 @@ export default function AdminDashboard() {
     { id: 'overview', label: 'Overview', icon: LayoutDashboard },
     { id: 'menu', label: 'Menu Management', icon: Menu },
     { id: 'reviews', label: 'Review Management', icon: MessageSquare },
-    { id: 'gallery', label: 'Gallery Management', icon: Gallery },
+    { id: 'gallery', label: 'Gallery Management', icon: Image },
     { id: 'location', label: 'Location & Settings', icon: MapPin },
   ]
 
