@@ -3,13 +3,14 @@ import { prisma } from '@/lib/prisma'
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const id = parseInt(params.id)
+    const { id } = await params
+    const imageId = parseInt(id)
 
     await prisma.galleryImage.delete({
-      where: { id },
+      where: { id: imageId },
     })
 
     return NextResponse.json({ success: true })

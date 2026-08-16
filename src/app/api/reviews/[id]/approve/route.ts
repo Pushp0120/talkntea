@@ -3,13 +3,14 @@ import { prisma } from '@/lib/prisma'
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const id = parseInt(params.id)
+    const { id } = await params
+    const reviewId = parseInt(id)
 
     const review = await prisma.review.update({
-      where: { id },
+      where: { id: reviewId },
       data: { approved: true },
     })
 

@@ -3,10 +3,11 @@ import { prisma } from '@/lib/prisma'
 
 export async function PUT(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const id = parseInt(params.id)
+    const { id } = await params
+    const menuId = parseInt(id)
     const formData = await request.formData()
 
     const name = formData.get('name') as string
@@ -28,7 +29,7 @@ export async function PUT(
     }
 
     const menuItem = await prisma.menuItem.update({
-      where: { id },
+      where: { id: menuId },
       data: {
         name,
         description,
@@ -48,13 +49,14 @@ export async function PUT(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
-    const id = parseInt(params.id)
+    const { id } = await params
+    const menuId = parseInt(id)
 
     await prisma.menuItem.delete({
-      where: { id },
+      where: { id: menuId },
     })
 
     return NextResponse.json({ success: true })
