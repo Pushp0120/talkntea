@@ -120,17 +120,19 @@ export default function GalleryManagement() {
           <div
             key={image.id}
             className="relative group rounded-xl overflow-hidden border border-gray-200 bg-white"
+            style={{ minHeight: '192px' }}
           >
-            <div className="w-full h-48 bg-gray-100">
+            <div className="w-full h-48 bg-gray-100 flex items-center justify-center overflow-hidden">
               <img
                 src={image.url}
                 alt={image.caption || 'Gallery image'}
                 className="w-full h-full object-cover"
+                style={{ minHeight: '192px' }}
                 onLoad={(e) => {
-                  console.log('Image loaded:', image.url)
+                  console.log('Image loaded successfully:', image.url, 'naturalWidth:', e.currentTarget.naturalWidth, 'naturalHeight:', e.currentTarget.naturalHeight)
                 }}
                 onError={(e) => {
-                  console.error('Image failed to load:', image.url)
+                  console.error('Image failed to load:', image.url, 'error:', e)
                   e.currentTarget.style.display = 'none'
                 }}
               />

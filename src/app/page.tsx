@@ -26,7 +26,6 @@ export default function Home() {
     { id: 'gallery', label: 'Gallery' },
     { id: 'reviews', label: 'Reviews' },
     { id: 'location', label: 'Location' },
-    { id: 'admin', label: 'Admin', isExternal: true },
   ]
 
   const handleWhatsAppClick = () => {
@@ -59,28 +58,18 @@ export default function Home() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
               {navItems.map((item) => (
-                item.isExternal ? (
-                  <a
-                    key={item.id}
-                    href="/admin"
-                    className="text-sm font-medium transition-colors hover:text-amber-600 text-gray-700"
-                  >
-                    {item.label}
-                  </a>
-                ) : (
-                  <button
-                    key={item.id}
-                    onClick={() => {
-                      setActiveSection(item.id)
-                      document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' })
-                    }}
-                    className={`text-sm font-medium transition-colors hover:text-amber-600 ${
-                      activeSection === item.id ? 'text-amber-600' : 'text-gray-700'
-                    }`}
-                  >
-                    {item.label}
-                  </button>
-                )
+                <button
+                  key={item.id}
+                  onClick={() => {
+                    setActiveSection(item.id)
+                    document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' })
+                  }}
+                  className={`text-sm font-medium transition-colors hover:text-amber-600 ${
+                    activeSection === item.id ? 'text-amber-600' : 'text-gray-700'
+                  }`}
+                >
+                  {item.label}
+                </button>
               ))}
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -121,16 +110,7 @@ export default function Home() {
           >
             <div className="px-4 py-4 space-y-3">
               {navItems.map((item) => (
-                item.isExternal ? (
-                  <a
-                    key={item.id}
-                    href="/admin"
-                    className="block text-sm font-medium text-gray-700 hover:text-amber-600"
-                  >
-                    {item.label}
-                  </a>
-                ) : (
-                  <button
+                <button
                   key={item.id}
                   onClick={() => {
                     setActiveSection(item.id)
@@ -141,7 +121,6 @@ export default function Home() {
                 >
                   {item.label}
                 </button>
-                )
               ))}
               <motion.button
                 whileTap={{ scale: 0.95 }}
