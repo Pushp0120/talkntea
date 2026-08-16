@@ -28,9 +28,12 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Image is required' }, { status: 400 })
     }
 
-    // Generate unique filename
+    // Get file extension from uploaded file
+    const fileExtension = imageFile.name.split('.').pop() || 'png'
+    
+    // Generate unique filename with correct extension
     const timestamp = Date.now()
-    const filename = `gallery-${timestamp}.png`
+    const filename = `gallery-${timestamp}.${fileExtension}`
     const uploadDir = join(process.cwd(), 'public', 'gallery')
     
     // Ensure directory exists
