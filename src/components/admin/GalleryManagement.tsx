@@ -67,14 +67,14 @@ export default function GalleryManagement() {
         await fetchImages()
         setIsModalOpen(false)
         resetForm()
-        alert('Image uploaded successfully!')
+        alert('Gallery image uploaded successfully!')
       } else {
         const errorData = await response.json()
-        alert(`Failed to upload image: ${errorData.error || 'Unknown error'}`)
+        alert(`Failed to upload gallery image: ${errorData.error || 'Unknown error'}`)
       }
     } catch (error) {
-      console.error('Error uploading image:', error)
-      alert('Failed to upload image. Please try again.')
+      console.error('Error uploading gallery image:', error)
+      alert('Failed to upload gallery image. Please try again.')
     }
   }
 

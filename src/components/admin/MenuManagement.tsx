@@ -57,6 +57,11 @@ export default function MenuManagement() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
+    if (!formData.name || !formData.price || !formData.category) {
+      alert('Please fill in all required fields')
+      return
+    }
+
     const formDataToSend = new FormData()
     formDataToSend.append('name', formData.name)
     formDataToSend.append('description', formData.description)
