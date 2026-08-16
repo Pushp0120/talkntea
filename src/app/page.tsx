@@ -35,7 +35,7 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
+    <div className="min-h-screen" style={{ backgroundColor: 'var(--warm-cream)' }}>
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -50,7 +50,7 @@ export default function Home() {
                 alt="Talk N Tea Logo"
                 className="h-8 w-8 rounded-full object-cover"
               />
-              <span className="text-xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
+              <span className="text-xl font-bold bg-clip-text text-transparent font-serif" style={{ backgroundImage: 'linear-gradient(to right, var(--brass-gold), var(--terracotta-red))' }}>
                 TALK N TEA
               </span>
             </motion.div>
@@ -75,7 +75,8 @@ export default function Home() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleWhatsAppClick}
-                className="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition-colors"
+                className="flex items-center gap-2 text-white px-4 py-2 rounded-full transition-colors"
+                style={{ backgroundColor: 'var(--terracotta-red)' }}
               >
                 <Send className="h-4 w-4" />
                 WhatsApp
@@ -125,7 +126,8 @@ export default function Home() {
               <motion.button
                 whileTap={{ scale: 0.95 }}
                 onClick={handleWhatsAppClick}
-                className="w-full flex items-center justify-center gap-2 bg-green-500 text-white px-4 py-2 rounded-full"
+                className="w-full flex items-center justify-center gap-2 text-white px-4 py-2 rounded-full"
+                style={{ backgroundColor: 'var(--terracotta-red)' }}
               >
                 <Send className="h-4 w-4" />
                 WhatsApp
@@ -144,8 +146,8 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="pt-16 min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-100/20 via-orange-100/20 to-yellow-100/20" />
+      <section id="home" className="pt-16 min-h-screen flex items-center justify-center relative overflow-hidden" style={{ backgroundColor: 'var(--warm-cream)' }}>
+        <div className="absolute inset-0" style={{ backgroundColor: 'var(--chai-brown)', opacity: '0.05' }} />
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
@@ -165,7 +167,7 @@ export default function Home() {
               }}
               className="mb-8 relative"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full blur-xl opacity-50" />
+              <div className="absolute inset-0 rounded-full blur-xl opacity-50" style={{ background: 'linear-gradient(to right, var(--brass-gold), var(--terracotta-red))' }} />
               <img
                 src="/logo.jpg"
                 alt="Talk N Tea Cafe"
@@ -179,8 +181,8 @@ export default function Home() {
               transition={{ delay: 0.2 }}
               className="mb-4"
             >
-              <h1 className="text-6xl md:text-8xl font-extrabold mb-4">
-                <span className="bg-gradient-to-r from-amber-600 via-orange-600 to-yellow-600 bg-clip-text text-transparent drop-shadow-lg">
+              <h1 className="text-6xl md:text-8xl font-extrabold mb-4 font-serif">
+                <span className="bg-clip-text text-transparent drop-shadow-lg" style={{ backgroundImage: 'linear-gradient(to right, var(--brass-gold), var(--terracotta-red))' }}>
                   TALK N TEA
                 </span>
               </h1>
@@ -205,10 +207,11 @@ export default function Home() {
               className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             >
               <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(251, 146, 60, 0.3)" }}
+                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(138, 59, 47, 0.3)" }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-10 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300"
+                className="text-white px-10 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300"
+                style={{ backgroundColor: 'var(--terracotta-red)' }}
               >
                 Explore Menu
               </motion.button>
@@ -216,7 +219,8 @@ export default function Home() {
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(34, 197, 94, 0.3)" }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleWhatsAppClick}
-                className="bg-green-500 text-white px-10 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2"
+                className="text-white px-10 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2"
+                style={{ backgroundColor: 'var(--terracotta-red)' }}
               >
                 <Send className="h-5 w-5" />
                 Order Now
@@ -230,15 +234,15 @@ export default function Home() {
               className="mt-16 flex flex-wrap justify-center gap-8 text-gray-700 font-medium"
             >
               <div className="flex items-center gap-3 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg">
-                <Clock className="h-6 w-6 text-amber-600" />
+                <Clock className="h-6 w-6" style={{ color: 'var(--brass-gold)' }} />
                 <span>8:30 AM - 11 PM</span>
               </div>
               <div className="flex items-center gap-3 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg">
-                <MapPin className="h-6 w-6 text-amber-600" />
+                <MapPin className="h-6 w-6" style={{ color: 'var(--brass-gold)' }} />
                 <span>Bilimora, Gujarat</span>
               </div>
               <div className="flex items-center gap-3 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg">
-                <Phone className="h-6 w-6 text-amber-600" />
+                <Phone className="h-6 w-6" style={{ color: 'var(--brass-gold)' }} />
                 <span>+91 86967 43047</span>
               </div>
             </motion.div>
@@ -249,7 +253,7 @@ export default function Home() {
       </section>
 
       {/* Video Section */}
-      <section className="py-24 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
+      <section className="py-24" style={{ backgroundColor: 'var(--warm-cream)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -257,7 +261,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-amber-600 via-orange-600 to-yellow-600 bg-clip-text text-transparent">
+            <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent font-serif" style={{ backgroundImage: 'linear-gradient(to right, var(--brass-gold), var(--terracotta-red))' }}>
               Experience Talk N Tea
             </h2>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto font-medium">
@@ -306,14 +310,14 @@ export default function Home() {
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-400 rounded-full blur-lg opacity-50" />
+                  <div className="absolute inset-0 rounded-full blur-lg opacity-50" style={{ background: 'linear-gradient(to right, var(--brass-gold), var(--terracotta-red))' }} />
                   <img
                     src="/logo.jpg"
                     alt="Talk N Tea Logo"
                     className="h-12 w-12 rounded-full object-cover relative border-2 border-white"
                   />
                 </div>
-                <span className="text-2xl font-bold bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">TALK N TEA</span>
+                <span className="text-2xl font-bold bg-clip-text text-transparent font-serif" style={{ backgroundImage: 'linear-gradient(to right, var(--brass-gold), var(--terracotta-red))' }}>TALK N TEA</span>
               </div>
               <p className="text-gray-300 leading-relaxed">
                 Your favorite neighborhood cafe serving premium tea and delicious snacks in the heart of Bilimora.
@@ -345,7 +349,8 @@ export default function Home() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={handleWhatsAppClick}
-                  className="flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors font-semibold shadow-lg"
+                  className="flex items-center gap-2 text-white px-6 py-3 rounded-full transition-colors font-semibold shadow-lg"
+                  style={{ backgroundColor: 'var(--terracotta-red)' }}
                 >
                   <Send className="h-5 w-5" />
                   WhatsApp

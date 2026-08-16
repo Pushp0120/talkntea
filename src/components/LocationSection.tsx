@@ -12,6 +12,13 @@ export default function LocationSection() {
     hours: '8:30 AM - 11:00 PM',
   }
 
+  const cafeColors = {
+    brass: '#C89B5C',
+    terracotta: '#8A3B2F',
+    brown: '#2B1B12',
+    cream: '#F5EFE6',
+  }
+
   const handleWhatsAppNavigation = () => {
     const phoneNumber = '918696743047'
     const message = encodeURIComponent('Hi! I am on my way to your cafe. Could you help me with directions?')
@@ -27,7 +34,7 @@ export default function LocationSection() {
   }
 
   return (
-    <section id="location" className="py-20 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
+    <section id="location" className="py-20" style={{ backgroundColor: 'var(--warm-cream)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -36,9 +43,9 @@ export default function LocationSection() {
           className="text-center mb-12"
         >
           <div className="flex items-center justify-center gap-2 mb-4">
-            <MapPin className="h-8 w-8 text-amber-600" />
+            <MapPin className="h-8 w-8" style={{ color: 'var(--brass-gold)' }} />
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent font-serif" style={{ backgroundImage: 'linear-gradient(to right, var(--brass-gold), var(--terracotta-red))' }}>
             Find Us
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
@@ -96,7 +103,7 @@ export default function LocationSection() {
                   <div>
                     <h4 className="font-semibold text-gray-800 mb-1">Opening Hours</h4>
                     <p className="text-gray-600">{cafeLocation.hours}</p>
-                    <p className="text-sm text-green-600 mt-1">Open Now</p>
+                    <p className="text-sm mt-1" style={{ color: 'var(--terracotta-red)' }}>Open Now</p>
                   </div>
                 </div>
 
@@ -128,7 +135,8 @@ export default function LocationSection() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleCall}
-                className="bg-green-500 text-white py-4 rounded-xl font-semibold hover:bg-green-600 transition-colors flex items-center justify-center gap-2 shadow-lg"
+                className="text-white py-4 rounded-xl font-semibold transition-colors flex items-center justify-center gap-2 shadow-lg"
+                style={{ backgroundColor: 'var(--terracotta-red)' }}
               >
                 <Phone className="h-5 w-5" />
                 Call Us
@@ -138,7 +146,8 @@ export default function LocationSection() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleWhatsAppNavigation}
-                className="sm:col-span-2 bg-gradient-to-r from-green-500 to-green-600 text-white py-4 rounded-xl font-semibold hover:shadow-lg transition-all flex items-center justify-center gap-2"
+                className="sm:col-span-2 text-white py-4 rounded-xl font-semibold hover:shadow-lg transition-all flex items-center justify-center gap-2"
+                style={{ background: 'linear-gradient(to right, var(--brass-gold), var(--terracotta-red))' }}
               >
                 <Send className="h-5 w-5" />
                 WhatsApp for Directions

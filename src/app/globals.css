@@ -3,13 +3,21 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --chai-brown: #2B1B12;
+  --brass-gold: #C89B5C;
+  --warm-cream: #F5EFE6;
+  --terracotta-red: #8A3B2F;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+  --color-chai-brown: var(--chai-brown);
+  --color-brass-gold: var(--brass-gold);
+  --color-warm-cream: var(--warm-cream);
+  --color-terracotta-red: var(--terracotta-red);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +30,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }

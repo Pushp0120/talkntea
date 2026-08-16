@@ -151,7 +151,7 @@ export default function MenuSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-amber-600 via-orange-600 to-yellow-600 bg-clip-text text-transparent">
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent font-serif" style={{ backgroundImage: 'linear-gradient(to right, var(--brass-gold), var(--terracotta-red))' }}>
             Our Menu
           </h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto font-medium">
@@ -192,9 +192,10 @@ export default function MenuSection() {
                 onClick={() => setActiveCategory(category.id)}
                 className={`flex items-center gap-2 px-6 py-3 rounded-full transition-all ${
                   activeCategory === category.id
-                    ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    ? 'text-white shadow-lg'
+                    : 'text-gray-700 hover:bg-gray-100'
                 }`}
+                style={activeCategory === category.id ? { backgroundColor: 'var(--terracotta-red)' } : {}}
               >
                 <Icon className="h-4 w-4" />
                 {category.name}
@@ -221,9 +222,9 @@ export default function MenuSection() {
               whileHover={{ y: -8, scale: 1.02 }}
               className="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100"
             >
-              <div className="relative h-56 bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center overflow-hidden">
+              <div className="relative h-56 flex items-center justify-center overflow-hidden" style={{ backgroundColor: 'var(--warm-cream)' }}>
                 {item.featured && (
-                  <div className="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-1 z-10 shadow-lg">
+                  <div className="absolute top-4 right-4 text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-1 z-10 shadow-lg" style={{ background: 'linear-gradient(to right, var(--brass-gold), var(--terracotta-red))' }}>
                     <Star className="h-4 w-4 fill-current" />
                     Popular
                   </div>
@@ -238,7 +239,7 @@ export default function MenuSection() {
               <div className="p-6 bg-white">
                 <div className="flex justify-between items-start mb-3">
                   <h3 className="text-xl font-bold text-gray-800">{item.name}</h3>
-                  <div className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-4 py-2 rounded-full font-bold shadow-md">
+                  <div className="text-white px-4 py-2 rounded-full font-bold shadow-md" style={{ background: 'linear-gradient(to right, var(--brass-gold), var(--terracotta-red))' }}>
                     ₹{item.price}
                   </div>
                 </div>

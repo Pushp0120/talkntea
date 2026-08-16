@@ -14,7 +14,7 @@ export default function GallerySection() {
   const [selectedImage, setSelectedImage] = useState<typeof galleryImages[0] | null>(null)
 
   return (
-    <section id="gallery" className="py-20 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
+    <section id="gallery" className="py-20" style={{ backgroundColor: 'var(--warm-cream)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -22,7 +22,7 @@ export default function GallerySection() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent font-serif" style={{ backgroundImage: 'linear-gradient(to right, var(--brass-gold), var(--terracotta-red))' }}>
             Our Gallery
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
