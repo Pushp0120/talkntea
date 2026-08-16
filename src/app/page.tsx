@@ -348,6 +348,7 @@ export default function Home() {
                 <li><button onClick={() => document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-amber-400 transition-colors font-medium">Gallery</button></li>
                 <li><button onClick={() => document.getElementById('reviews')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-amber-400 transition-colors font-medium">Reviews</button></li>
                 <li><button onClick={() => document.getElementById('location')?.scrollIntoView({ behavior: 'smooth' })} className="hover:text-amber-400 transition-colors font-medium">Location</button></li>
+                <li><a href="/admin" className="hover:text-amber-400 transition-colors font-medium">Admin</a></li>
               </ul>
             </div>
             <div>

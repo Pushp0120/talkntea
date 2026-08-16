@@ -124,7 +124,11 @@ export default function GalleryManagement() {
               src={image.url}
               alt={image.caption || 'Gallery image'}
               className="w-full h-48 object-cover"
+              onLoad={(e) => {
+                console.log('Image loaded:', image.url)
+              }}
               onError={(e) => {
+                console.error('Image failed to load:', image.url)
                 e.currentTarget.src = '/placeholder.png'
               }}
             />
