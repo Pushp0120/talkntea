@@ -78,9 +78,6 @@ export default function GallerySection() {
                 src={image.url}
                 alt={image.caption || 'Gallery image'}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                onError={(e) => {
-                  e.currentTarget.src = '/placeholder.png'
-                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <Heart className="h-12 w-12 text-white" />
@@ -117,9 +114,6 @@ export default function GallerySection() {
                 src={selectedImage.url}
                 alt={selectedImage.caption || 'Gallery image'}
                 className="w-full h-full object-contain rounded-2xl"
-                onError={(e) => {
-                  e.currentTarget.src = '/placeholder.png'
-                }}
               />
               <button
                 onClick={() => setSelectedImage(null)}

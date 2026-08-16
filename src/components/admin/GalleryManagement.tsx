@@ -144,6 +144,7 @@ export default function GalleryManagement() {
             </div>
             <div className="p-4">
               <p className="font-medium text-gray-800">{image.caption || 'Untitled'}</p>
+              <p className="text-xs text-gray-500 mt-1 truncate">{image.url.substring(0, 50)}...</p>
               <button
                 onClick={() => handleDelete(image.id)}
                 className="mt-2 p-2 bg-red-500 text-white rounded hover:bg-red-600"
