@@ -4,8 +4,8 @@ import { prisma } from '@/lib/prisma'
 export async function GET() {
   try {
     const reviews = await prisma.review.findMany({
-      where: { approved: true },
       orderBy: { createdAt: 'desc' },
+      take: 5,
     })
 
     return NextResponse.json(reviews)
@@ -29,7 +29,7 @@ export async function POST(request: NextRequest) {
         name,
         rating,
         comment,
-        approved: false, // Requires admin approval
+        approved: true, // Auto-approve for now, can add admin approval later
       },
     })
 

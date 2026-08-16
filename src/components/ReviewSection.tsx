@@ -2,36 +2,39 @@
 
 import { motion } from 'framer-motion'
 import { Star, MessageCircle, Send } from 'lucide-react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
-const existingReviews = [
-  {
-    id: 1,
-    name: 'Rahul Sharma',
-    rating: 5,
-    comment: 'Amazing chai and cozy atmosphere! The masala chai here is the best I have ever had.',
-    date: '2 days ago',
-  },
-  {
-    id: 2,
-    name: 'Priya Patel',
-    rating: 4,
-    comment: 'Great place to hang out with friends. Love their snacks and tea selection.',
-    date: '1 week ago',
-  },
-  {
-    id: 3,
-    name: 'Amit Kumar',
-    rating: 5,
-    comment: 'Perfect spot for evening tea. The staff is very friendly and the service is quick.',
-    date: '2 weeks ago',
-  },
-]
+interface Review {
+  id: number
+  name: string
+  rating: number
+  comment: string
+  createdAt: string
+}
 
 export default function ReviewSection() {
-  const [reviews, setReviews] = useState(existingReviews)
+  const [reviews, setReviews] = useState<Review[]>([])
   const [newReview, setNewReview] = useState({ name: '', rating: 5, comment: '' })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
+
+  const fetchReviews = async () => {
+    try {
+      const response = await fetch('/api/reviews')
+      if (response.ok) {
+        const data = await response.json()
+        setReviews(data)
+      }
+    } catch (error) {
+      console.error('Error fetching reviews:', error)
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    fetchReviews()
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -52,16 +55,8 @@ export default function ReviewSection() {
 
       const savedReview = await response.json()
 
-      // Add the new review to the local state
-      const review = {
-        id: savedReview.id,
-        name: savedReview.name,
-        rating: savedReview.rating,
-        comment: savedReview.comment,
-        date: 'Just now',
-      }
-
-      setReviews([review, ...reviews])
+      // Refresh reviews from database
+      await fetchReviews()
       setNewReview({ name: '', rating: 5, comment: '' })
     } catch (error) {
       console.error('Error submitting review:', error)
@@ -79,6 +74,20 @@ export default function ReviewSection() {
         style={i < rating ? { color: 'var(--brass-gold)', fill: 'currentColor' } : { color: '#d1d5db' }}
       />
     ))
+  }
+
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString)
+    const now = new Date()
+    const diffInMs = now.getTime() - date.getTime()
+    const diffInHours = Math.floor(diffInMs / (1000 * 60 * 60))
+    const diffInDays = Math.floor(diffInHours / 24)
+
+    if (diffInHours < 1) return 'Just now'
+    if (diffInHours < 24) return `${diffInHours} hours ago`
+    if (diffInDays === 1) return 'Yesterday'
+    if (diffInDays < 7) return `${diffInDays} days ago`
+    return date.toLocaleDateString()
   }
 
   return (
@@ -180,45 +189,63 @@ export default function ReviewSection() {
 
           {/* Reviews List */}
           <div className="space-y-6">
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="rounded-2xl p-6 shadow-lg"
-              style={{ backgroundColor: 'var(--warm-cream)' }}
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="flex items-center gap-1">
-                  {renderStars(5)}
-                </div>
-                <span className="text-2xl font-bold" style={{ color: 'var(--brass-gold)' }}>4.8</span>
-                <span className="text-gray-600">out of 5</span>
+            {isLoading ? (
+              <div className="text-center py-8">
+                <p className="text-gray-600">Loading reviews...</p>
               </div>
-              <p className="text-gray-600">Based on {reviews.length} reviews</p>
-            </motion.div>
+            ) : (
+              <>
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  className="rounded-2xl p-6 shadow-lg"
+                  style={{ backgroundColor: 'var(--warm-cream)' }}
+                >
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="flex items-center gap-1">
+                      {renderStars(5)}
+                    </div>
+                    <span className="text-2xl font-bold" style={{ color: 'var(--brass-gold)' }}>
+                      {reviews.length > 0 
+                        ? (reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length).toFixed(1)
+                        : '5.0'}
+                    </span>
+                    <span className="text-gray-600">out of 5</span>
+                  </div>
+                  <p className="text-gray-600">Based on {reviews.length} reviews</p>
+                </motion.div>
 
-            {reviews.map((review, index) => (
-              <motion.div
-                key={review.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow"
-                style={{ backgroundColor: 'var(--warm-cream)' }}
-              >
-                <div className="flex items-start justify-between mb-3">
-                  <div>
-                    <h4 className="font-semibold text-gray-800">{review.name}</h4>
-                    <p className="text-sm text-gray-500">{review.date}</p>
+                {reviews.length === 0 ? (
+                  <div className="text-center py-8 rounded-2xl p-6 shadow-md" style={{ backgroundColor: 'var(--warm-cream)' }}>
+                    <p className="text-gray-600">No reviews yet. Be the first to review!</p>
                   </div>
-                  <div className="flex items-center gap-1">
-                    {renderStars(review.rating)}
-                  </div>
-                </div>
-                <p className="text-gray-700">{review.comment}</p>
-              </motion.div>
-            ))}
+                ) : (
+                  reviews.map((review, index) => (
+                    <motion.div
+                      key={review.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 }}
+                      className="rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow"
+                      style={{ backgroundColor: 'var(--warm-cream)' }}
+                    >
+                      <div className="flex items-start justify-between mb-3">
+                        <div>
+                          <h4 className="font-semibold text-gray-800">{review.name}</h4>
+                          <p className="text-sm text-gray-500">{formatDate(review.createdAt)}</p>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          {renderStars(review.rating)}
+                        </div>
+                      </div>
+                      <p className="text-gray-700">{review.comment}</p>
+                    </motion.div>
+                  ))
+                )}
+              </>
+            )}
           </div>
         </div>
       </div>
