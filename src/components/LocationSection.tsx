@@ -103,7 +103,7 @@ export default function LocationSection() {
                   <div>
                     <h4 className="font-semibold text-gray-800 mb-1">Opening Hours</h4>
                     <p className="text-gray-600">{cafeLocation.hours}</p>
-                    <p className="text-sm mt-1" style={{ color: 'var(--terracotta-red)' }}>Open Now</p>
+                    <p className="text-sm text-green-600 mt-1">Open Now</p>
                   </div>
                 </div>
 
@@ -135,8 +135,7 @@ export default function LocationSection() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleCall}
-                className="text-white py-4 rounded-xl font-semibold transition-colors flex items-center justify-center gap-2 shadow-lg"
-                style={{ backgroundColor: 'var(--terracotta-red)' }}
+                className="bg-green-500 text-white py-4 rounded-xl font-semibold hover:bg-green-600 transition-colors flex items-center justify-center gap-2 shadow-lg"
               >
                 <Phone className="h-5 w-5" />
                 Call Us
@@ -146,8 +145,7 @@ export default function LocationSection() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleWhatsAppNavigation}
-                className="sm:col-span-2 text-white py-4 rounded-xl font-semibold hover:shadow-lg transition-all flex items-center justify-center gap-2"
-                style={{ background: 'linear-gradient(to right, var(--brass-gold), var(--terracotta-red))' }}
+                className="sm:col-span-2 bg-gradient-to-r from-green-500 to-green-600 text-white py-4 rounded-xl font-semibold hover:shadow-lg transition-all flex items-center justify-center gap-2"
               >
                 <Send className="h-5 w-5" />
                 WhatsApp for Directions

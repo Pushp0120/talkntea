@@ -75,8 +75,7 @@ export default function Home() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleWhatsAppClick}
-                className="flex items-center gap-2 text-white px-4 py-2 rounded-full transition-colors"
-                style={{ backgroundColor: 'var(--terracotta-red)' }}
+                className="flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition-colors"
               >
                 <Send className="h-4 w-4" />
                 WhatsApp
@@ -126,8 +125,7 @@ export default function Home() {
               <motion.button
                 whileTap={{ scale: 0.95 }}
                 onClick={handleWhatsAppClick}
-                className="w-full flex items-center justify-center gap-2 text-white px-4 py-2 rounded-full"
-                style={{ backgroundColor: 'var(--terracotta-red)' }}
+                className="w-full flex items-center justify-center gap-2 bg-green-500 text-white px-4 py-2 rounded-full"
               >
                 <Send className="h-4 w-4" />
                 WhatsApp
@@ -219,8 +217,7 @@ export default function Home() {
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(34, 197, 94, 0.3)" }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleWhatsAppClick}
-                className="text-white px-10 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2"
-                style={{ backgroundColor: 'var(--terracotta-red)' }}
+                className="bg-green-500 text-white px-10 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-2"
               >
                 <Send className="h-5 w-5" />
                 Order Now
@@ -349,8 +346,7 @@ export default function Home() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={handleWhatsAppClick}
-                  className="flex items-center gap-2 text-white px-6 py-3 rounded-full transition-colors font-semibold shadow-lg"
-                  style={{ backgroundColor: 'var(--terracotta-red)' }}
+                  className="flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors font-semibold shadow-lg"
                 >
                   <Send className="h-5 w-5" />
                   WhatsApp
