@@ -28,6 +28,7 @@ export default function GalleryManagement() {
       const response = await fetch('/api/gallery')
       if (response.ok) {
         const data = await response.json()
+        console.log('Gallery images fetched:', data)
         setImages(data)
       }
     } catch (error) {
@@ -118,20 +119,22 @@ export default function GalleryManagement() {
         {images.map((image) => (
           <div
             key={image.id}
-            className="relative group rounded-xl overflow-hidden border border-gray-200"
+            className="relative group rounded-xl overflow-hidden border border-gray-200 bg-white"
           >
-            <img
-              src={image.url}
-              alt={image.caption || 'Gallery image'}
-              className="w-full h-48 object-cover"
-              onLoad={(e) => {
-                console.log('Image loaded:', image.url)
-              }}
-              onError={(e) => {
-                console.error('Image failed to load:', image.url)
-                e.currentTarget.src = '/placeholder.png'
-              }}
-            />
+            <div className="w-full h-48 bg-gray-100">
+              <img
+                src={image.url}
+                alt={image.caption || 'Gallery image'}
+                className="w-full h-full object-cover"
+                onLoad={(e) => {
+                  console.log('Image loaded:', image.url)
+                }}
+                onError={(e) => {
+                  console.error('Image failed to load:', image.url)
+                  e.currentTarget.style.display = 'none'
+                }}
+              />
+            </div>
             <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all">
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                 <button
