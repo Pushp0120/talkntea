@@ -48,11 +48,14 @@ export default function GalleryManagement() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
 
+    if (!formData.image) {
+      alert('Please select an image to upload')
+      return
+    }
+
     const formDataToSend = new FormData()
     formDataToSend.append('caption', formData.caption)
-    if (formData.image) {
-      formDataToSend.append('image', formData.image)
-    }
+    formDataToSend.append('image', formData.image)
 
     try {
       const response = await fetch('/api/gallery', {
@@ -64,10 +67,14 @@ export default function GalleryManagement() {
         await fetchImages()
         setIsModalOpen(false)
         resetForm()
+        alert('Image uploaded successfully!')
+      } else {
+        const errorData = await response.json()
+        alert(`Failed to upload image: ${errorData.error || 'Unknown error'}`)
       }
     } catch (error) {
       console.error('Error uploading image:', error)
-      alert('Failed to upload image')
+      alert('Failed to upload image. Please try again.')
     }
   }
 
