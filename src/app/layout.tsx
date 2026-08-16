@@ -17,6 +17,18 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Talk N Tea | Bilimora's Premium Cafe",
   description: "Where every cup tells a story. Visit Talk N Tea in Bilimora for premium chai, snacks, and a cozy ambiance.",
+  keywords: ["Talk N Tea", "Bilimora cafe", "chai", "tea", "premium cafe", "Gujarat", "snacks", "coffee", "milkshake"],
+  openGraph: {
+    title: "Talk N Tea | Bilimora's Premium Cafe",
+    description: "Where every cup tells a story. Visit Talk N Tea in Bilimora for premium chai, snacks, and a cozy ambiance.",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Talk N Tea | Bilimora's Premium Cafe",
+    description: "Where every cup tells a story. Visit Talk N Tea in Bilimora for premium chai, snacks, and a cozy ambiance.",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

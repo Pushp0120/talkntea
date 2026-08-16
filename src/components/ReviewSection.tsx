@@ -37,18 +37,38 @@ export default function ReviewSection() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000))
+    try {
+      const response = await fetch('/api/reviews', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newReview),
+      })
 
-    const review = {
-      id: reviews.length + 1,
-      ...newReview,
-      date: 'Just now',
+      if (!response.ok) {
+        throw new Error('Failed to submit review')
+      }
+
+      const savedReview = await response.json()
+
+      // Add the new review to the local state
+      const review = {
+        id: savedReview.id,
+        name: savedReview.name,
+        rating: savedReview.rating,
+        comment: savedReview.comment,
+        date: 'Just now',
+      }
+
+      setReviews([review, ...reviews])
+      setNewReview({ name: '', rating: 5, comment: '' })
+    } catch (error) {
+      console.error('Error submitting review:', error)
+      alert('Failed to submit review. Please try again.')
+    } finally {
+      setIsSubmitting(false)
     }
-
-    setReviews([review, ...reviews])
-    setNewReview({ name: '', rating: 5, comment: '' })
-    setIsSubmitting(false)
   }
 
   const renderStars = (rating: number) => {
