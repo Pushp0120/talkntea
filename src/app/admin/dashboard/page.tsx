@@ -29,6 +29,12 @@ export default function AdminDashboard() {
     }
   }, [router])
 
+  useEffect(() => {
+    if (activeTab === 'overview' && !isLoading) {
+      fetchStats()
+    }
+  }, [activeTab, isLoading])
+
   const fetchStats = async () => {
     try {
       const [menuRes, reviewsRes, galleryRes] = await Promise.all([
