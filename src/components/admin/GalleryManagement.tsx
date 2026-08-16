@@ -120,40 +120,40 @@ export default function GalleryManagement() {
           <div
             key={image.id}
             className="relative group rounded-xl overflow-hidden border-2 border-gray-300 bg-white"
-            style={{ minHeight: '250px' }}
           >
-            <div className="w-full h-56 bg-gradient-to-br from-gray-50 to-gray-200 flex items-center justify-center overflow-hidden relative">
-              <img
-                src={image.url}
-                alt={image.caption || 'Gallery image'}
-                className="w-full h-full object-contain"
-                style={{ position: 'relative', zIndex: 1 }}
-                onLoad={(e) => {
-                  console.log('Image loaded successfully:', image.url, 'naturalWidth:', e.currentTarget.naturalWidth, 'naturalHeight:', e.currentTarget.naturalHeight)
-                }}
-                onError={(e) => {
-                  console.error('Image failed to load:', image.url, 'error:', e)
-                  e.currentTarget.style.display = 'none'
-                }}
-              />
-              {!image.url && (
-                <div className="absolute inset-0 flex items-center justify-center text-gray-400">
-                  <span>No image</span>
+            <div className="w-full h-56 bg-white flex items-center justify-center overflow-hidden">
+              {image.url ? (
+                <img
+                  src={image.url}
+                  alt={image.caption || 'Gallery image'}
+                  className="w-full h-full object-cover"
+                  onLoad={(e) => {
+                    console.log('Image loaded successfully:', image.url, 'naturalWidth:', e.currentTarget.naturalWidth, 'naturalHeight:', e.currentTarget.naturalHeight)
+                  }}
+                  onError={(e) => {
+                    console.error('Image failed to load:', image.url, 'error:', e)
+                    e.currentTarget.style.display = 'none'
+                  }}
+                />
+              ) : (
+                <div className="text-gray-400 text-center p-4">
+                  <p>No image URL</p>
+                  <p className="text-xs mt-2">ID: {image.id}</p>
                 </div>
               )}
             </div>
-            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all z-10">
+            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all">
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                 <button
                   onClick={() => handleDelete(image.id)}
-                  className="p-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors z-20"
+                  className="p-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors"
                 >
                   <Trash2 className="h-4 w-4" />
                 </button>
               </div>
             </div>
             {image.caption && (
-              <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-2 z-20">
+              <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-2">
                 <p className="text-sm">{image.caption}</p>
               </div>
             )}
