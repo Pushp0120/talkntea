@@ -1,0 +1,55 @@
+import { NextRequest, NextResponse } from 'next/server'
+import { prisma } from '@/lib/prisma'
+
+export async function GET() {
+  try {
+    const images = await prisma.galleryImage.findMany({
+      orderBy: { order: 'asc' },
+    })
+
+    return NextResponse.json(images)
+  } catch (error) {
+    console.error('Error fetching gallery images:', error)
+    return NextResponse.json({ error: 'Failed to fetch gallery images' }, { status: 500 })
+  }
+}
+
+export async function POST(request: NextRequest) {
+  try {
+    const formData = await request.formData()
+
+    const caption = formData.get('caption') as string
+    const imageFile = formData.get('image') as File | null
+
+    if (!imageFile) {
+      return NextResponse.json({ error: 'Image is required' }, { status: 400 })
+    }
+
+    // Convert image to base64
+    const bytes = await imageFile.arrayBuffer()
+    const buffer = Buffer.from(bytes)
+    const base64 = buffer.toString('base64')
+    const mimeType = imageFile.type
+    const imageUrl = `data:${mimeType};base64,${base64}`
+
+    // Get the highest order number
+    const lastImage = await prisma.galleryImage.findFirst({
+      orderBy: { order: 'desc' },
+    })
+
+    const order = lastImage ? lastImage.order + 1 : 0
+
+    const galleryImage = await prisma.galleryImage.create({
+      data: {
+        url: imageUrl,
+        caption,
+        order,
+      },
+    })
+
+    return NextResponse.json(galleryImage, { status: 201 })
+  } catch (error) {
+    console.error('Error creating gallery image:', error)
+    return NextResponse.json({ error: 'Failed to create gallery image' }, { status: 500 })
+  }
+}
