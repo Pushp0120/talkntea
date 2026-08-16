@@ -2,16 +2,37 @@
 
 import { motion } from 'framer-motion'
 import { Heart } from 'lucide-react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
-const galleryImages = [
-  { id: 1, url: '/gallery/gallery-1.png', caption: 'Talk N Tea Cafe' },
-  { id: 2, url: '/gallery/gallery-2.png', caption: 'Our Special Menu' },
-  { id: 3, url: '/gallery/gallery-3.png', caption: 'Cafe Ambiance' },
-]
+interface GalleryImage {
+  id: number
+  url: string
+  caption: string | null
+  order: number
+}
 
 export default function GallerySection() {
-  const [selectedImage, setSelectedImage] = useState<typeof galleryImages[0] | null>(null)
+  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null)
+  const [galleryImages, setGalleryImages] = useState<GalleryImage[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    fetchGalleryImages()
+  }, [])
+
+  const fetchGalleryImages = async () => {
+    try {
+      const response = await fetch('/api/gallery')
+      if (response.ok) {
+        const data = await response.json()
+        setGalleryImages(data)
+      }
+    } catch (error) {
+      console.error('Error fetching gallery images:', error)
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   return (
     <section id="gallery" className="py-20" style={{ backgroundColor: 'var(--warm-cream)' }}>
@@ -30,14 +51,19 @@ export default function GallerySection() {
           </p>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
-        >
-          {galleryImages.map((image, index) => (
+        {isLoading ? (
+          <div className="text-center py-12">
+            <p className="text-gray-600">Loading gallery...</p>
+          </div>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          >
+            {galleryImages.map((image, index) => (
             <motion.div
               key={image.id}
               initial={{ opacity: 0, scale: 0.8 }}
@@ -50,8 +76,11 @@ export default function GallerySection() {
             >
               <img
                 src={image.url}
-                alt={image.caption}
+                alt={image.caption || 'Gallery image'}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                onError={(e) => {
+                  e.currentTarget.src = '/placeholder.png'
+                }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <Heart className="h-12 w-12 text-white" />
@@ -61,7 +90,14 @@ export default function GallerySection() {
               </div>
             </motion.div>
           ))}
-        </motion.div>
+          </motion.div>
+        )}
+
+        {!isLoading && galleryImages.length === 0 && (
+          <div className="text-center py-12 text-gray-500">
+            <p className="text-lg">No gallery images yet.</p>
+          </div>
+        )}
 
         {/* Image Modal */}
         {selectedImage && (
@@ -79,8 +115,11 @@ export default function GallerySection() {
             >
               <img
                 src={selectedImage.url}
-                alt={selectedImage.caption}
+                alt={selectedImage.caption || 'Gallery image'}
                 className="w-full h-full object-contain rounded-2xl"
+                onError={(e) => {
+                  e.currentTarget.src = '/placeholder.png'
+                }}
               />
               <button
                 onClick={() => setSelectedImage(null)}
