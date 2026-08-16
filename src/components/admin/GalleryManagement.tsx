@@ -119,7 +119,7 @@ export default function GalleryManagement() {
         {images.map((image) => (
           <div
             key={image.id}
-            className="rounded-xl overflow-hidden border-2 border-gray-300 bg-white"
+            className="relative group rounded-xl overflow-hidden border-2 border-gray-300 bg-white"
           >
             <div className="w-full h-56 bg-white">
               {image.url ? (
@@ -127,13 +127,6 @@ export default function GalleryManagement() {
                   src={image.url}
                   alt={image.caption || 'Gallery image'}
                   className="w-full h-full object-cover"
-                  style={{ display: 'block' }}
-                  onLoad={(e) => {
-                    console.log('Image loaded successfully:', image.url, 'naturalWidth:', e.currentTarget.naturalWidth, 'naturalHeight:', e.currentTarget.naturalHeight)
-                  }}
-                  onError={(e) => {
-                    console.error('Image failed to load:', image.url, 'error:', e)
-                  }}
                 />
               ) : (
                 <div className="text-gray-400 text-center p-4">
@@ -142,21 +135,25 @@ export default function GalleryManagement() {
                 </div>
               )}
             </div>
-            <div className="p-4">
-              <p className="font-medium text-gray-800">{image.caption || 'Untitled'}</p>
-              <p className="text-xs text-gray-500 mt-1">{image.url}</p>
-              <button
-                onClick={() => handleDelete(image.id)}
-                className="mt-2 p-2 bg-red-500 text-white rounded hover:bg-red-600"
-              >
-                Delete
-              </button>
+            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all">
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <button
+                  onClick={() => handleDelete(image.id)}
+                  className="p-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors"
+                >
+                  <Trash2 className="h-4 w-4" />
+                </button>
+              </div>
             </div>
+            {image.caption && (
+              <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 text-white p-2">
+                <p className="text-sm">{image.caption}</p>
+              </div>
+            )}
           </div>
         ))}
       </div>
 
-      {/* Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-2xl p-6 max-w-md w-full mx-4">
