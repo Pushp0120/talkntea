@@ -51,9 +51,12 @@ export async function POST(request: NextRequest) {
 
     let imageUrl = null
     if (imageFile && imageFile.size > 0) {
-      // Generate filename from item name
+      // Get file extension from uploaded file
+      const fileExtension = imageFile.name.split('.').pop() || 'png'
+      
+      // Generate filename from item name with correct extension
       const sanitizedName = name.toLowerCase().replace(/[^a-z0-9]/g, '-')
-      const filename = `${sanitizedName}.png`
+      const filename = `${sanitizedName}.${fileExtension}`
       const uploadDir = join(process.cwd(), 'public', 'menu')
       
       // Ensure directory exists
