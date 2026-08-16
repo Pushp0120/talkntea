@@ -24,6 +24,8 @@ export async function POST(request: NextRequest) {
     const caption = formData.get('caption') as string
     const imageFile = formData.get('image') as File | null
 
+    console.log('Upload request received:', { caption, fileName: imageFile?.name, fileSize: imageFile?.size })
+
     if (!imageFile) {
       return NextResponse.json({ error: 'Image is required' }, { status: 400 })
     }
@@ -36,27 +38,36 @@ export async function POST(request: NextRequest) {
     const filename = `gallery-${timestamp}.${fileExtension}`
     const uploadDir = join(process.cwd(), 'public', 'gallery')
     
+    console.log('File details:', { filename, uploadDir })
+
     // Ensure directory exists
     if (!existsSync(uploadDir)) {
+      console.log('Creating directory:', uploadDir)
       await mkdir(uploadDir, { recursive: true })
     }
 
     // Save file to public/gallery directory
+    console.log('Saving file...')
     const bytes = await imageFile.arrayBuffer()
     const buffer = Buffer.from(bytes)
     const filepath = join(uploadDir, filename)
     await writeFile(filepath, buffer)
+    console.log('File saved successfully:', filepath)
 
     // Create URL path
     const imageUrl = `/gallery/${filename}`
 
     // Get the highest order number
+    console.log('Getting order number...')
     const lastImage = await prisma.galleryImage.findFirst({
       orderBy: { order: 'desc' },
     })
 
     const order = lastImage ? lastImage.order + 1 : 0
+    console.log('Order number:', order)
 
+    // Create database record
+    console.log('Creating database record...')
     const galleryImage = await prisma.galleryImage.create({
       data: {
         url: imageUrl,
@@ -64,10 +75,12 @@ export async function POST(request: NextRequest) {
         order,
       },
     })
+    console.log('Database record created:', galleryImage)
 
     return NextResponse.json(galleryImage, { status: 201 })
   } catch (error) {
     console.error('Error creating gallery image:', error)
-    return NextResponse.json({ error: 'Failed to create gallery image' }, { status: 500 })
+    console.error('Error details:', JSON.stringify(error, null, 2))
+    return NextResponse.json({ error: 'Failed to create gallery image', details: String(error) }, { status: 500 })
   }
 }
