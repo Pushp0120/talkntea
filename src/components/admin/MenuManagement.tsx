@@ -80,10 +80,14 @@ export default function MenuManagement() {
         await fetchMenuItems()
         setIsModalOpen(false)
         resetForm()
+        alert(editingItem ? 'Menu item updated successfully!' : 'Menu item created successfully!')
+      } else {
+        const errorData = await response.json()
+        alert(`Failed to save menu item: ${errorData.error || 'Unknown error'}`)
       }
     } catch (error) {
       console.error('Error saving menu item:', error)
-      alert('Failed to save menu item')
+      alert('Failed to save menu item. Please try again.')
     }
   }
 
